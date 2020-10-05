@@ -51,8 +51,8 @@ cordCollarThickness = 2.3;
 
 bayFrontWidth = 148;
 bayFrontHeight = 42.5;
-bayFrontThickness = 3;
-bayBaseThickness = 2;
+bayFrontThickness = 2;
+bayBaseThickness = 1.5;
 bayBoxHeight = 41;
 bayBoxWidth = 146;
 bayHoleDiameter = 2.5; // M3 screws
@@ -113,7 +113,7 @@ module driveBaySledWithHoles() {
 module socketPCBSupports() {
     supportWallThickness = 2;
     translate([(socketPCBWidth + 4)/-2, socketPCBInset - supportWallThickness - 0.5*socketPCBThickness, 0]) difference() {
-        cube([socketPCBWidth + 4, 2*supportWallThickness + socketPCBThickness, socketPCBHeight/2 + moduleZOffset]);
+        cube([socketPCBWidth + 4, 2*supportWallThickness + socketPCBThickness, socketPCBHeight/6 + moduleZOffset]);
         translate([-0.5, supportWallThickness, moduleZOffset]) {
             cube([socketPCBWidth + 5, socketPCBThickness, socketPCBHeight]);
         }
@@ -125,7 +125,7 @@ module socketPCBSupports() {
 }
 
 module screwPost(x, y) {
-    translate([x, y, 0]) difference() {
+    translate([x, mainPCBHeight - y, 0]) difference() {
         cylinder(d = screwPostDiameter, h = moduleZOffset + boardZOffset);
         translate([0, 0, moduleZOffset + boardZOffset - screwLength])
             cylinder(d = screwHoleDiameter, h = screwLength * 2);

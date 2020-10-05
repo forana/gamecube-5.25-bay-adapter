@@ -8,7 +8,7 @@
 $fn = 64;
 
 // "socket" = the round part
-socketWidth = ceil(16.93);
+socketWidth = ceil(16.93) + 0.5;
 socketRadius = socketWidth/2;
 socketDepth = ceil(3.8);
 // "plate" = the bigger part that we're going to use to hold the things in place
